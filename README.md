@@ -32,7 +32,7 @@ Access the Kubernetes API at:
     https://vip.rke2.lab:6443
 
 **NB** You must use the client certificate that is inside the `tmp/admin.conf`,
-`tmp/*.pem`, or `/etc/rancher/rke2/rke2.yaml` (inside the `server1` machine)
+`tmp/*.pem`, or `/etc/rancher/rke2/rke2.yaml` (inside the `cp1` machine)
 file.
 
 Access the Kubernetes API using the client certificate with httpie:
