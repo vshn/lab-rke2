@@ -18,3 +18,11 @@ export ETCDCTL_CACERT=/var/lib/rancher/rke2/server/tls/etcd/server-ca.crt
 export ETCDCTL_CERT=/var/lib/rancher/rke2/server/tls/etcd/server-client.crt
 export ETCDCTL_KEY=/var/lib/rancher/rke2/server/tls/etcd/server-client.key
 EOF
+
+source /etc/profile.d/etcdctl.sh
+
+# list etcd members.
+etcdctl --write-out table member list
+
+# show the endpoint status.
+etcdctl --write-out table endpoint status

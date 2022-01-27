@@ -82,9 +82,8 @@ Vagrant.configure(2) do |config|
         controlplane_vip,
         'eth1',
       ]
-      #TODO:
-      #config.vm.provision 'shell', path: 'tooling/etcdctl.sh', args: [etcdctl_version]
-      #config.vm.provision 'shell', path: 'provision-k9s.sh', args: [k9s_version]
+      config.vm.provision 'shell', path: 'tooling/etcdctl.sh', args: [etcdctl_version]
+      config.vm.provision 'shell', path: 'tooling/k9s.sh', args: [k9s_version]
       if n == 1
         config.vm.provision 'shell', path: 'k8s/example-app.sh'
       end
