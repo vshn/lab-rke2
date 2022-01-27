@@ -67,6 +67,8 @@ Vagrant.configure(2) do |config|
         hosts.add_host controlplane_vip, [cluster_vip_name]
       end
       config.vm.provision 'shell', path: 'vm/base.sh'
+      config.vm.provision 'shell', path: 'tooling/helm.sh'
+      config.vm.provision 'shell', path: 'net/cilium-cli.sh'
       config.vm.provision 'shell', path: 'vm/controlplane.sh'
       config.vm.provision 'shell', path: 'rke2/server-images.sh'
       config.vm.provision 'shell', path: 'rke2/server.sh', args: [

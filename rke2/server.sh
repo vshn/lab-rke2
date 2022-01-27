@@ -20,6 +20,7 @@ server: $rke2_url
 token: $(cat /vagrant/tmp/node-token)
 EOF
 fi
+# If using your own CNI `cni: none`
 cat >>/etc/rancher/rke2/config.yaml <<EOF
 node-ip: $ip_address
 node-taint: CriticalAddonsOnly=true:NoExecute
@@ -28,7 +29,11 @@ tls-san:
  - $fqdn
  - vip.$(hostname --domain)
 disable: rke2-ingress-nginx
+
+# https://github.com/rancher/rke2/pull/2036
+#disable-kube-proxy: true
 cni: cilium
+
 cluster-cidr: 10.12.0.0/16
 service-cidr: 10.13.0.0/16
 cluster-dns: 10.13.0.10
