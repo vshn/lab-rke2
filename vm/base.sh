@@ -15,6 +15,8 @@ export DEBIAN_FRONTEND=noninteractive
 ip addr
 cat /sys/class/dmi/id/product_uuid
 
+# https://wiki.debian.org/ReduceDebian
+
 # update the package cache.
 apt-get update
 
