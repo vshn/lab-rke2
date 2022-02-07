@@ -25,9 +25,8 @@ cat >>/etc/rancher/rke2/config.yaml <<EOF
 node-ip: $ip_address
 node-taint: CriticalAddonsOnly=true:NoExecute
 tls-san:
- - server.$(hostname --domain)
- - $fqdn
  - vip.$(hostname --domain)
+ - $fqdn
 disable: rke2-ingress-nginx
 
 # https://github.com/rancher/rke2/pull/2036
