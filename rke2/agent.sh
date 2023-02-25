@@ -15,6 +15,8 @@ cat >>/etc/rancher/rke2/config.yaml <<EOF
 server: $rke2_server_url
 token: $(cat /vagrant/tmp/node-token)
 node-ip: $ip_address
+kubelet-arg:
+- "max-pods=500"
 EOF
 curl -sfL https://raw.githubusercontent.com/rancher/rke2/$rke2_version/install.sh \
   | \
